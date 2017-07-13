@@ -33,7 +33,7 @@ namespace PontoEmail.Lib.Tests
         {
             var action = new Action(() => { _sut = new DiasDeEnvio(dataInicial, dataFinal); });
 
-            action.ShouldThrow<ArgumentException>().WithMessage("Datas com formato errado!");
+            action.ShouldThrow<ArgumentException>().WithMessage("Datas com formato errado. Formato correto: dd/mm/aaaa ou dd-mm-aaaa!");
         }
 
         [Fact]

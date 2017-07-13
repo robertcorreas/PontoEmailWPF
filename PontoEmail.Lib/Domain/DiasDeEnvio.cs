@@ -10,7 +10,7 @@ namespace PontoEmail.Lib.Domain
             DataInicio = dataInicio;
             DataFim = dataFim;
 
-            if (!DatasFormatoCorreto()) throw new ArgumentException("Datas com formato errado!");
+            if (!DatasFormatoCorreto()) throw new ArgumentException("Datas com formato errado. Formato correto: dd/mm/aaaa ou dd-mm-aaaa!");
 
             if (!DatasVálidas()) throw new ArgumentException("Datas fora de ordem!");
         }

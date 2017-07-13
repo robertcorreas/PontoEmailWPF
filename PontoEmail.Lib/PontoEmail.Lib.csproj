@@ -64,8 +64,10 @@
     <Compile Include="Domain\DiasDeEnvio.cs" />
     <Compile Include="Domain\DiasComHorasDeEnvio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PontoEmailService.cs" />
     <Compile Include="Tests\DiasDeEnvioTests.cs" />
     <Compile Include="Tests\DiasComHorasDeEnvioTests.cs" />
+    <Compile Include="Tests\PontoEmailServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
