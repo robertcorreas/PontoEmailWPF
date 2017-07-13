@@ -7,12 +7,17 @@ namespace PontoEmail.Lib.Domain
     {
         private readonly DiasDeEnvio _diasDeEnvio;
 
+        public IReadOnlyCollection<ItemDeEnvio> ItensDeEnvio { get; private set; }
+
         public DiasComHorasDeEnvio(DiasDeEnvio diasDeEnvio)
         {
             _diasDeEnvio = diasDeEnvio;
+
+            GerarDiasComHorasDeEnvio();
         }
 
-        public IReadOnlyCollection<ItemDeEnvio> GetDiasComHorasDeEnvio()
+
+        private void GerarDiasComHorasDeEnvio()
         {
             var r = new Random();
             var listaDiasComHorarioEnvio = new List<ItemDeEnvio>();
@@ -35,7 +40,7 @@ namespace PontoEmail.Lib.Domain
                 listaDiasComHorarioEnvio.Add(itemDeEnvio);
             }
 
-            return listaDiasComHorarioEnvio;
+            ItensDeEnvio =  listaDiasComHorarioEnvio;
         }
     }
 }

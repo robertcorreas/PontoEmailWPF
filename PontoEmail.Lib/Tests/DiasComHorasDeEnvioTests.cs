@@ -44,7 +44,7 @@ namespace PontoEmail.Lib.Tests
 
             _sut = new DiasComHorasDeEnvio(diasDeEnvio);
 
-            var diasComHorasDeEnvio = _sut.GetDiasComHorasDeEnvio().ToList();
+            var diasComHorasDeEnvio = _sut.ItensDeEnvio.ToList();
 
             for (var i = 0; i < diasComHorasDeEnvio.Count; i++)
             {

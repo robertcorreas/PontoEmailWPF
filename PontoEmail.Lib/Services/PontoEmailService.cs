@@ -16,7 +16,7 @@ namespace PontoEmail.Lib.Services
 
                 MemoryPersistence.DiasComHorasDeEnvio = diasComHorasDeEnvio;
 
-                var result = new ServicerResult<IReadOnlyCollection<ItemDeEnvio>>(diasComHorasDeEnvio.GetDiasComHorasDeEnvio());
+                var result = new ServicerResult<IReadOnlyCollection<ItemDeEnvio>>(diasComHorasDeEnvio.ItensDeEnvio);
 
                 return result;
             }
