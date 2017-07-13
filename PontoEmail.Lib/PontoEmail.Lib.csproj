@@ -63,8 +63,11 @@
   <ItemGroup>
     <Compile Include="Domain\DiasDeEnvio.cs" />
     <Compile Include="Domain\DiasComHorasDeEnvio.cs" />
+    <Compile Include="Domain\ItemDeEnvio.cs" />
+    <Compile Include="Persistence\MemoryPersistence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PontoEmailService.cs" />
+    <Compile Include="Services\ServicerResult.cs" />
     <Compile Include="Tests\DiasDeEnvioTests.cs" />
     <Compile Include="Tests\DiasComHorasDeEnvioTests.cs" />
     <Compile Include="Tests\PontoEmailServiceTests.cs" />

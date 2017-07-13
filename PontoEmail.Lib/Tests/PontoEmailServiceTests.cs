@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
+using PontoEmail.Lib.Persistence;
 using PontoEmail.Lib.Services;
 using Xunit;
 
@@ -12,6 +13,11 @@ namespace PontoEmail.Lib.Tests
     public class PontoEmailServiceTests
     {
         private PontoEmailService _sut;
+
+        public PontoEmailServiceTests()
+        {
+            MemoryPersistence.DiasComHorasDeEnvio = null;
+        }
 
         [Theory]
         [InlineData("11/07/2017", "12/07/2017")]
@@ -24,6 +30,8 @@ namespace PontoEmail.Lib.Tests
 
             result.IsOk.Should().BeTrue();
             result.Data.Should().NotBeNull();
+
+            MemoryPersistence.DiasComHorasDeEnvio.Should().NotBeNull();
         }
 
         [Theory]
@@ -39,6 +47,8 @@ namespace PontoEmail.Lib.Tests
             result.IsOk.Should().BeFalse();
             result.Data.Should().BeNull();
             result.Message.Should().Be("Datas fora de ordem!");
+
+            MemoryPersistence.DiasComHorasDeEnvio.Should().BeNull();
         }
 
         [Theory]
@@ -53,6 +63,8 @@ namespace PontoEmail.Lib.Tests
             result.IsOk.Should().BeFalse();
             result.Data.Should().BeNull();
             result.Message.Should().Be("Datas com formato errado. Formato correto: dd/mm/aaaa ou dd-mm-aaaa!");
+
+            MemoryPersistence.DiasComHorasDeEnvio.Should().BeNull();
         }
     }
 }

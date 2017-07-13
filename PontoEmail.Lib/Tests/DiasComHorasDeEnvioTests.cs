@@ -46,10 +46,12 @@ namespace PontoEmail.Lib.Tests
 
             var diasComHorasDeEnvio = _sut.GetDiasComHorasDeEnvio().ToList();
 
-            for (var i = 0; i < diasComHorasDeEnvio.Count; i += 2)
+            for (var i = 0; i < diasComHorasDeEnvio.Count; i++)
             {
-                var datahoraEntrada = DateTime.Parse(diasComHorasDeEnvio[i]);
-                var datahoraSaida = DateTime.Parse(diasComHorasDeEnvio[i + 1]);
+                var itemDeEnvio = diasComHorasDeEnvio[i];
+
+                var datahoraEntrada = DateTime.Parse(itemDeEnvio.Entrada);
+                var datahoraSaida = DateTime.Parse(itemDeEnvio.Saida);
 
                 datahoraEntrada.Day.Should().Be(datahoraSaida.Day);
                 datahoraEntrada.Month.Should().Be(datahoraSaida.Month);

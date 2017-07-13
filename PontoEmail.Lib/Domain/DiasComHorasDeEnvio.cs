@@ -12,10 +12,10 @@ namespace PontoEmail.Lib.Domain
             _diasDeEnvio = diasDeEnvio;
         }
 
-        public IReadOnlyCollection<string> GetDiasComHorasDeEnvio()
+        public IReadOnlyCollection<ItemDeEnvio> GetDiasComHorasDeEnvio()
         {
             var r = new Random();
-            var listaDiasComHorarioEnvio = new List<string>();
+            var listaDiasComHorarioEnvio = new List<ItemDeEnvio>();
             foreach (var diasEnvio in _diasDeEnvio.GetListaDeEnvio())
             {
                 var dateTimeEntrada = DateTime.Parse(diasEnvio);
@@ -30,8 +30,9 @@ namespace PontoEmail.Lib.Domain
 
                 var saida = dateTimeSaida.AddMinutes(r.Next(0, 10));
 
-                listaDiasComHorarioEnvio.Add(entrada.ToString("dd/MM/yyyy HH:mm:ss"));
-                listaDiasComHorarioEnvio.Add(saida.ToString("dd/MM/yyyy HH:mm:ss"));
+                var itemDeEnvio = new ItemDeEnvio(entrada.ToString("dd/MM/yyyy HH:mm:ss"), saida.ToString("dd/MM/yyyy HH:mm:ss"));
+
+                listaDiasComHorarioEnvio.Add(itemDeEnvio);
             }
 
             return listaDiasComHorarioEnvio;
